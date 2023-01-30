@@ -1,0 +1,16 @@
+services:
+  be:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend/server.py:/backend/server.py
+    image: be
+
+  client:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend/src:/frontend/src
+    image: fe
+    ports:
+      - "3000:3000"
